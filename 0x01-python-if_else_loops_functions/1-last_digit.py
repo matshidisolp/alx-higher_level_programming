@@ -7,4 +7,4 @@ if number < 0:
 
 comparison_result = "greater than 5" if digit > 5 else "0" if digit == 0 else "less than 6 and not 0"
 
-print("Last digit of {} is {} and is {}".format(number, digit, comparison_result), end="")
+print("Last digit of {} is {} and is {}".format(number, digit, comparison_result), end="\n")
