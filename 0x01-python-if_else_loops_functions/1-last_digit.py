@@ -8,11 +8,3 @@ if number < 0:
 comparison_result = "greater than 5" if digit > 5 else "0" if digit == 0 else "less than 6 and not 0"
 
 print("Last digit of {} is {} and is {}".format(number, digit, comparison_result), end="")
-
-#print("Last digit of {} is {} and is ".format(number, digit), end="")
-#if digit > 5:
-#    print("greater than 5")
-#elif digit == 0:
-#    print("0")
-#else:
-#    print("less than 6 and not 0")
