@@ -1,12 +1,12 @@
 #include "lists.h"
 
 /**
- * cycle_check - check if linked list has a cycle
+ * check_cylce - check if linked list has a cycle
  * @list: linked list to be checked
  * Description: Uses Floyd's cycle finding algorithm to check for a cycle
  * Return: 1 if true_cycle, 0 if false_no cycle
  */
-int cycle_check(listint_t *list)
+int check_cycle(listint_t *list)
 {
 	listint_t *slow = list, *fast = list;
 
