@@ -2,7 +2,10 @@
 
 def islower(c):
     """Check for lowercase characters."""
-    return ord('a') <= ord(c) <= ord('z')
+    if ord(c) >= 97 and ord(c) <= 122:
+        return True
+    else:
+        return False
 
 
 # Call the function and print the result
