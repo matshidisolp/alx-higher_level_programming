@@ -7,15 +7,16 @@ def safe_print_list(my_list=[], x=0):
         x (int): The number of elements to print. Defaults to 0.
 
     Returns:
-        int: The number of printed elements.
+        int: The real number of printed elements.
     """
+    elements_printed = 0
 
-    ret = 0
     for i in range(x):
         try:
             print("{}".format(my_list[i]), end="")
-            ret += 1
+            elements_printed += 1
         except IndexError:
             break
+
     print("")
-    return (ret)
+    return elements_printed
