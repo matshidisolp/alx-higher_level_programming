@@ -84,13 +84,42 @@ class Rectangle(Base):
         """Method to calculate the area of the rectangle"""
         return self.__width * self.__height
 
+    def display(self):
+        """Method show rectangle using '#' characters and x, y offsets"""
+        for i in range(self.__y):
+            print()
+        for j in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
+
+    def __str__(self):
+        """Override the __str__ method"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height
+        )
+
+    def update(self, *args, **kwargs):
+        """Method to update attributes based on arguments"""
+        if args:
+            attributes = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                setattr(self, attributes[i], args[i])
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
 
 if __name__ == "__main__":
-    r1 = Rectangle(3, 2)
-    print(r1.area())
+    r1 = Rectangle(10, 10, 10, 10)
+    print(r1)
 
-    r2 = Rectangle(2, 10)
-    print(r2.area())
+    r1.update(height=1)
+    print(r1)
 
-    r3 = Rectangle(8, 7, 0, 0, 12)
-    print(r3.area())
+    r1.update(width=1, x=2)
+    print(r1)
+
+    r1.update(y=1, width=2, x=3, id=89)
+    print(r1)
+
+    r1.update(x=1, height=2, y=3, width=4)
+    print(r1)
