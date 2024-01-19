@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for Base class"""
 import json
+import csv
 
 
 class Base:
@@ -70,5 +71,27 @@ class Base:
         except FileNotFoundError:
             return []
 
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Saves a list of instances to a CSV file"""
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as file:
+            csv_writer = csv.writer(file)
+            for obj in list_objs:
+                csv_writer.writerow(obj.to_csv())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Returns a list of instances from a CSV file"""
+
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as file:
+                csv_reader = csv.reader(file)
+                return [cls.create(*map(int, row)) for row in csv_reader]
+        except FileNotFoundError:
+            return []
+
 # Example usage:
-# list_rectangles_output = Rectangle.load_from_file()
+# list_rectangles_output = Rectangle.load_from_file_csv()
