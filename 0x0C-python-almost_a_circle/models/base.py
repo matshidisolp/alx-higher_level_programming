@@ -44,12 +44,8 @@ class Base:
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set"""
 
-        # Creating a dummy instance with mandatory attributes
-        dummy_instance = cls(1)  # Assuming 1 as a dummy value for id
-
-        # Updating the dummy instance with the provided dictionary
+        dummy_instance = cls(1)
         dummy_instance.update(**dictionary)
-
         return dummy_instance
 
     @staticmethod
@@ -61,7 +57,18 @@ class Base:
 
         return json.loads(json_string)
 
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances from a JSON file"""
+
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as file:
+                json_data = file.read()
+                list_dicts = cls.from_json_string(json_data)
+                return [cls.create(**obj_dict) for obj_dict in list_dicts]
+        except FileNotFoundError:
+            return []
+
 # Example usage:
-# json_string = '[{"id": 89, "width": 10, "height": 4},
-# {"id": 7, "width": 1, "height": 7}]'
-# list_output = Base.from_json_string(json_string)
+# list_rectangles_output = Rectangle.load_from_file()
