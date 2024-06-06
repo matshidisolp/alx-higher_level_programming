@@ -1,4 +1,4 @@
---creates a table second_table in the database hbtn_0c_0 in MySQL server 
+-- creates second_table in the database hbtn_0c_0 in MySQL server 
 CREATE TABLE IF NOT EXISTS second_table (
     id INT,
     name VARCHAR(256),
