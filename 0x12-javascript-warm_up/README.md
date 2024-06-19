@@ -119,3 +119,25 @@ Write a function that returns the addition of 2 integers.
 The function must be visible from outside
 The name of the function must be add
 You are not allowed to use var
+
+14. Const or not const
+Write a file that modifies the value of myVar to 333
+
+15. Call me Moby
+Write a function that executes x times a function.
+
+The function must be visible from outside
+Prototype: function (x, theFunction)
+You are not allowed to use var
+
+16. Add me maybe
+Write a function that increments and calls a function.
+
+The function must be visible from outside
+Prototype: function (number, theFunction)
+You are not allowed to use var
+
+17. Increment object
+Update this script by adding a new function incr that increments the integer value.
+
+You are not allowed to use var
