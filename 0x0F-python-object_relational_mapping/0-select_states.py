@@ -1,11 +1,8 @@
 #!/usr/bin/python3
 
 """
-Module to connect to a MySQL database and retrieve all from states table.
-The script takes three arguments from the command line:
-1. MySQL username
-2. MySQL password
-3. Database name
+Module to connect to a MySQL database
+And lists all states in the database
 
 Usage:
     ./script_name.py <username> <password> <database_name>
