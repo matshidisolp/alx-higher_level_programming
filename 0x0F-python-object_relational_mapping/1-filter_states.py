@@ -1,41 +1,25 @@
-#!/usr/bin/python3i
-
+#!/usr/bin/python3
 """
-Module to connect to a MySQL database and retrieve all from states table.
-The script takes three arguments from the command line:
- 1. MySQL username
- 2. MySQL password
- 3. Database name
-
- Usage:
- ./script_name.py <username> <password> <database_name>
+Module list all states with name starting with N
 """
 
-import MySQLdb
-import sys
-
-if __name__ == "__main__":
-
+if __name__ == '__main__':
+    import MySQLdb
+    import sys
     db = MySQLdb.connect(
-        host="localhost",
+        host='localhost',
         user=sys.argv[1],
+        port=3306,
         passwd=sys.argv[2],
         db=sys.argv[3],
-        port=3306
+        charset='utf8'
     )
-
-    cur = db.cursor()
-
-    query = (
-        "SELECT * FROM states WHERE name LIKE BINARY 'N%' "
-        "ORDER BY id ASC"
-    )
-    cur.execute(query)
-
-    rows = cur.fetchall()
-
-    for row in rows:
+    cursor = db.cursor()
+    cursor.execute('SELECT * FROM states\
+            WHERE name Like BINARY "N%"\
+            ORDER BY id ASC ')
+    query = cursor.fetchall()
+    for row in query:
         print(row)
-
-    cur.close()
+    cursor.close()
     db.close()
