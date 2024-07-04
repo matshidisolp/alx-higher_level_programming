@@ -1,3 +1,4 @@
 #!/bin/bash
-# display body of status 200 response
+# sends GET request to given URL
+# display body of the response
 curl -sL "$1"
