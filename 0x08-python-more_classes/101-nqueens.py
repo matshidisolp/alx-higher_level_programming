@@ -32,23 +32,24 @@ def board_deepcopy(board):
 
 
 def get_solution(board):
-    """Return the list of lists representation of a solved chessboard."""
-    return [[r, c] for r, row in enumerate(board) for c, val in enumerate(row) if val == 'Q']
+#Return the list of lists representation of a solved chessboard
+	return [[r, c] for r, row in enumerate(board) for c, val in enumerate(row) if val == 'Q']
 
 
 def xout(board, row, col):
     """X out spots on a chessboard."""
-    for r in range(len(board)):
-        board[r][col] = board[row][r] = board[row][col] = board[row][col] = 'x'
-        if 0 <= row + r < len(board) and 0 <= col + r < len(board[row]):
-            board[row + r][col + r] = 'x'
-        if 0 <= row - r < len(board) and 0 <= col - r < len(board[row]):
-            board[row - r][col - r] = 'x'
+	    for r in range(len(board)):
+		    board[row][r] = 'x'
+		    board[r][col] = 'x'
 
+	    if 0 <= row + r < len(board) and 0 <= col + r < len(board[row]):
+            board[row + r][col + r] = 'x'
+	    if 0 <= row - r < len(board) and 0 <= col - r < len(board[row]):
+            board[row - r][col - r] = 'x'
 
 def recursive_solve(board, row, queens, solutions):
     """Recursively solve an N-queens puzzle."""
-    if queens == len(board):
+    if row == len(board):
         solutions.append(get_solution(board))
         return solutions
 
