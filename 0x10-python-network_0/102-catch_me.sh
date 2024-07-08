@@ -1,4 +1,3 @@
 #!/bin/bash
-# sends a request to a request to 0.0.0.0:5000/catch_me that causes
-# server to respond with You got me!, in the body of the response
-curl -sL -X PUT -d "user_id=98" 0.0.0.0:5000/catch_me
+# sends a request to given URL and cause a specific response
+curl -sL 0.0.0.0:5000/catch_me_3 -X PUT -H "Origin:HolbertonSchool"
