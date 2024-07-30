@@ -1,5 +1,6 @@
 #!/usr/bin/node
 // Prints the number of movies with “Wedge Antilles” present
+
 const request = require('request');
 const apiUrl = process.argv[2];
 const characterId = '18';
