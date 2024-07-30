@@ -15,7 +15,14 @@ request(apiUrl, (error, response, body) => {
   try {
     const data = JSON.parse(body);
     const films = data.results;
-    const count = films.filter(film => film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)).length;
+    let count = 0;
+
+    films.forEach(film => {
+      if (film.characters.some(character => character.includes(characterId))) {
+        count++;
+      }
+    });
+
     console.log(count);
   } catch (err) {
     console.error('Error parsing JSON:', err);
